@@ -105,7 +105,10 @@ class _BottomBar extends StatelessWidget {
               children: [
                 tab(0),
                 tab(1),
-                Expanded(child: Center(child: _AddButton(onTap: onAdd))),
+                // heightFactor keeps Center from filling the Scaffold height.
+                Expanded(
+                  child: Center(heightFactor: 1, child: _AddButton(onTap: onAdd)),
+                ),
                 tab(2),
                 tab(3),
               ],
