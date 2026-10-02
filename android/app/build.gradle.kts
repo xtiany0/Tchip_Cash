@@ -15,7 +15,8 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     namespace = "com.tchipmo.app"
-    compileSdk = flutter.compileSdkVersion
+    // permission_handler_android needs SDK 37 to compile.
+    compileSdk = maxOf(flutter.compileSdkVersion, 37)
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
