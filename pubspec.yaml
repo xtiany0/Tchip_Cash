@@ -16,7 +16,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.0.0+1
+version: 1.0.1+2
 
 environment:
   sdk: ^3.13.2
@@ -84,7 +84,12 @@ flutter:
         - asset: assets/fonts/GeistMono-SemiBold.ttf
           weight: 600
 
+# Plain #121212 native screen; the animated splash is drawn by Flutter.
+# Android 12+ always shows a centre icon, so it gets a transparent one.
 flutter_native_splash:
   color: "#121212"
+  image: assets/splash/transparent.png
   android_12:
     color: "#121212"
+    image: assets/splash/transparent.png
+    icon_background_color: "#121212"
