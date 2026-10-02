@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Tchip !, accueil</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@500;600&amp;display=swap">
+<style>
+body{margin:0;background:#0b0b0b}
+a{color:#E8B931}a:hover{color:#F3CF5F}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #121212; color: #F2F2F2; font-family: 'Geist', system-ui, sans-serif; position: relative; overflow: hidden">
+<div style="padding: 28px 20px 110px; display: flex; flex-direction: column; gap: 18px">
+
+<div style="display: flex; justify-content: space-between; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em">Tchip <span style="color: #E8B931">!</span></div>
+<div style="font-size: 13px; color: #9A9A9A">Lundi 12 octobre</div>
+</div>
+<a href="Reglages.dc.html" aria-label="Réglages" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid #2E2E2E; background: #1B1B1B; color: #D0D0D0; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"></path></svg></a>
+</div>
+
+<div style="padding: 18px; border-radius: 20px; background: {{heroBg}}; border: 1px solid {{heroBorder}}; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px">
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 14px; font-weight: 600">Semaine de cours</div>
+<div style="font-size: 12px; color: #9A9A9A">Plan du 12 au 18 oct.</div>
+</div>
+<div style="font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: {{badgeBg}}; color: {{badgeText}}; white-space: nowrap">{{badge}}</div>
+</div>
+<div style="display: flex; align-items: baseline; gap: 8px">
+<div style="font-family: 'Geist Mono', monospace; font-size: 38px; font-weight: 600; letter-spacing: -0.03em">{{spent}}</div>
+<div style="font-size: 15px; color: #9A9A9A">/ 20 000 F</div>
+</div>
+<div style="height: 10px; border-radius: 999px; background: #2A2A2A; overflow: hidden">
+<div style="height: 10px; border-radius: 999px; width: {{pctW}}; background: {{barColor}}"></div>
+</div>
+<div style="font-size: 14px; color: #D0D0D0">{{msg}}</div>
+</div>
+
+<a href="Jour.dc.html" style="padding: 16px; border-radius: 18px; background: #1B1B1B; border: 1px solid #262626; display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: #F2F2F2">
+<div style="display: flex; justify-content: space-between; align-items: center">
+<div style="font-size: 15px; font-weight: 600">Aujourd'hui</div>
+<div style="display: flex; align-items: center; gap: 4px; font-size: 13px; color: #E8B931">Reste 1 300 F<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg></div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 6px"><div style="font-size: 12px; color: #9A9A9A">Nourriture</div><div style="height: 6px; border-radius: 999px; background: #2A2A2A"><div style="height: 6px; width: 60%; border-radius: 999px; background: #2E9E6A"></div></div><div style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #D0D0D0">1 200 / 2 000</div></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><div style="font-size: 12px; color: #9A9A9A">Transport</div><div style="height: 6px; border-radius: 999px; background: #2A2A2A"><div style="height: 6px; width: 83%; border-radius: 999px; background: #E07A2E"></div></div><div style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #F0954F">1 000 / 1 200</div></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><div style="font-size: 12px; color: #9A9A9A">Loisirs</div><div style="height: 6px; border-radius: 999px; background: #2A2A2A"><div style="height: 6px; width: 62%; border-radius: 999px; background: #2E9E6A"></div></div><div style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #D0D0D0">500 / 800</div></div>
+</div>
+</a>
+
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+<div style="padding: 12px 16px; border-radius: 16px; background: #1B1B1B; border: 1px solid #262626; display: flex; flex-direction: column; gap: 4px">
+<div style="font-size: 12px; color: #9A9A9A">Reçu ce mois</div>
+<div style="font-family: 'Geist Mono', monospace; font-size: 17px; font-weight: 600; color: #4CC28A">+85 000 F</div>
+</div>
+<div style="padding: 12px 16px; border-radius: 16px; background: #1B1B1B; border: 1px solid #262626; display: flex; flex-direction: column; gap: 4px">
+<div style="font-size: 12px; color: #9A9A9A">Frais ce mois</div>
+<div style="font-family: 'Geist Mono', monospace; font-size: 17px; font-weight: 600">1 250 F</div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; justify-content: space-between; align-items: center">
+<div style="font-size: 16px; font-weight: 600">Dernières opérations</div>
+<a href="Operations.dc.html" style="font-size: 14px; text-decoration: none">Tout voir</a>
+</div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 6px 0">
+<div style="width: 40px; height: 40px; border-radius: 12px; background: #1E1E1E; display: flex; align-items: center; justify-content: center; color: #B5B5B5"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"></rect><circle cx="12" cy="12" r="2.5"></circle></svg></div>
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px"><div style="font-size: 15px; font-weight: 500">Retrait</div><div style="font-size: 12px; color: #9A9A9A">MTN · 09:40</div></div>
+<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px"><div style="font-family: 'Geist Mono', monospace; font-size: 15px">−20 000 F</div><div style="font-size: 12px; color: #9A9A9A">frais 300 F</div></div>
+</div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 6px 0">
+<div style="width: 40px; height: 40px; border-radius: 12px; background: #1E1E1E; display: flex; align-items: center; justify-content: center; color: #C79BFF"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3"></circle><circle cx="18" cy="17" r="3"></circle><path d="M6 17l4-7h5l3 7M10 10 8 6H5"></path></svg></div>
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px"><div style="font-size: 15px; font-weight: 500">Zém Akpakpa</div><div style="font-size: 12px; color: #9A9A9A">Transport · Espèces</div></div>
+<div style="font-family: 'Geist Mono', monospace; font-size: 15px">−500 F</div>
+</div>
+</div>
+
+</div>
+
+<nav aria-label="Navigation principale" style="position: absolute; left: 0; right: 0; bottom: 0; height: 84px; box-sizing: border-box; padding: 8px 12px 18px; background: #161616; border-top: 1px solid #262626; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: center">
+<a href="Main.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; text-decoration: none; color: #E8B931"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"></path></svg>Accueil</a>
+<a href="Operations.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 11px; text-decoration: none; color: #9A9A9A"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"></path></svg>Opérations</a>
+<a href="Ajout.dc.html" aria-label="Ajouter une dépense en espèces" style="justify-self: center; width: 52px; height: 52px; border-radius: 18px; background: #E8B931; color: #1F1B10; display: flex; align-items: center; justify-content: center; text-decoration: none"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></a>
+<a href="Bilan.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 11px; text-decoration: none; color: #9A9A9A"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12A9 9 0 1 1 12 3v9z"></path><path d="M15 3.5A9 9 0 0 1 20.5 9H15z"></path></svg>Bilan</a>
+<a href="Budget.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 11px; text-decoration: none; color: #9A9A9A"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"></rect><path d="M8 2v4M16 2v4M3 10h18"></path></svg>Plans</a>
+</nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"etat":{"editor":"enum","options":["ok","alerte","depasse"],"default":"ok"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var e = this.props.etat ?? 'ok';
+    var s = {
+      ok: { spent: '6 200 F', pctW: '31%', barColor: '#2E9E6A', badge: 'Dans le budget', badgeBg: 'rgba(46,158,106,0.16)', badgeText: '#4CC28A', msg: 'Il te reste 13 800 F pour 6 jours.', heroBg: '#1B1B1B', heroBorder: '#262626' },
+      alerte: { spent: '16 400 F', pctW: '82%', barColor: '#E07A2E', badge: '82 % du plafond', badgeBg: 'rgba(224,122,46,0.16)', badgeText: '#F0954F', msg: 'Plus que 3 600 F pour 6 jours.', heroBg: '#1B1B1B', heroBorder: 'rgba(224,122,46,0.45)' },
+      depasse: { spent: '21 300 F', pctW: '100%', barColor: '#D64545', badge: 'Plafond dépassé', badgeBg: 'rgba(214,69,69,0.2)', badgeText: '#F07070', msg: 'Tu as dépassé le plafond du plan de 1 300 F.', heroBg: 'rgba(214,69,69,0.12)', heroBorder: 'rgba(214,69,69,0.6)' }
+    };
+    return s[e] || s.ok;
+  }
+}
+</script>
+</body>
+</html>

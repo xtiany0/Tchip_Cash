@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Tchip, bilan</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@500;600&amp;display=swap">
+<style>
+body{margin:0;background:#0b0b0b}
+a{color:#E8B931}a:hover{color:#F3CF5F}
+</style>
+</helmet>
+<div style="width: 390px; height: 1400px; box-sizing: border-box; background: #121212; color: #F2F2F2; font-family: 'Geist', system-ui, sans-serif; position: relative; overflow: hidden">
+<div style="padding: 28px 20px 110px; display: flex; flex-direction: column; gap: 18px">
+
+<div style="font-size: 24px; font-weight: 700; letter-spacing: -0.02em">Bilan</div>
+
+<div style="display: flex; gap: 8px; overflow: hidden; margin-right: -20px">
+<sc-for list="{{periodes}}" as="p" hint-placeholder-count="5">
+<button onClick="{{p.pick}}" style="{{p.style}}">{{p.label}}</button>
+</sc-for>
+</div>
+
+<div style="padding: 18px; border-radius: 18px; background: #1B1B1B; border: 1px solid #262626; display: flex; flex-direction: column; gap: 6px">
+<div style="font-size: 14px; color: #B5B5B5">Total dépensé · {{periode}}</div>
+<div style="font-family: 'Geist Mono', monospace; font-size: 36px; font-weight: 600; letter-spacing: -0.03em">46 350 F</div>
+<div style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: #4CC28A"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"></path></svg>12 % de moins que la période précédente</div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+<div style="padding: 14px 16px; border-radius: 16px; background: #1B1B1B; border: 1px solid #262626; display: flex; flex-direction: column; gap: 4px">
+<div style="font-size: 13px; color: #9A9A9A">Reçu</div>
+<div style="font-family: 'Geist Mono', monospace; font-size: 18px; font-weight: 600; color: #4CC28A">+85 000 F</div>
+</div>
+<div style="padding: 14px 16px; border-radius: 16px; background: #1B1B1B; border: 1px solid #262626; display: flex; flex-direction: column; gap: 4px">
+<div style="font-size: 13px; color: #9A9A9A">Frais payés</div>
+<div style="font-family: 'Geist Mono', monospace; font-size: 18px; font-weight: 600">1 250 F</div>
+</div>
+</div>
+
+<div style="padding: 18px; border-radius: 18px; background: #1B1B1B; border: 1px solid #262626; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><div style="font-size: 16px; font-weight: 600">Frais par type</div><div style="font-family: 'Geist Mono', monospace; font-size: 14px; color: #B5B5B5">1 250 F</div></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><div style="display: flex; justify-content: space-between; font-size: 14px"><span>Retrait <span style="color: #9A9A9A">· 3 fois</span></span><span style="font-family: 'Geist Mono', monospace">900 F</span></div><div style="height: 6px; border-radius: 999px; background: #2A2A2A"><div style="height: 6px; width: 72%; border-radius: 999px; background: #B5B5B5"></div></div></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><div style="display: flex; justify-content: space-between; font-size: 14px"><span>Envoi <span style="color: #9A9A9A">· 6 fois</span></span><span style="font-family: 'Geist Mono', monospace">300 F</span></div><div style="height: 6px; border-radius: 999px; background: #2A2A2A"><div style="height: 6px; width: 24%; border-radius: 999px; background: #B5B5B5"></div></div></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><div style="display: flex; justify-content: space-between; font-size: 14px"><span>Paiement <span style="color: #9A9A9A">· 11 fois</span></span><span style="font-family: 'Geist Mono', monospace">50 F</span></div><div style="height: 6px; border-radius: 999px; background: #2A2A2A"><div style="height: 6px; width: 4%; border-radius: 999px; background: #B5B5B5"></div></div></div>
+</div>
+
+<div style="padding: 18px; border-radius: 18px; background: #1B1B1B; border: 1px solid #262626; display: flex; flex-direction: column; gap: 16px">
+<div style="font-size: 16px; font-weight: 600">Répartition par catégorie</div>
+<div style="display: flex; align-items: center; gap: 20px">
+<svg width="132" height="132" viewBox="0 0 42 42" role="img" aria-label="Répartition des dépenses par catégorie">
+<circle cx="21" cy="21" r="15.915" fill="none" stroke="#7FB7FF" stroke-width="6" stroke-dasharray="39.7 60.3" stroke-dashoffset="25"></circle>
+<circle cx="21" cy="21" r="15.915" fill="none" stroke="#C79BFF" stroke-width="6" stroke-dasharray="24.2 75.8" stroke-dashoffset="-14.7"></circle>
+<circle cx="21" cy="21" r="15.915" fill="none" stroke="#FF9DB8" stroke-width="6" stroke-dasharray="17.2 82.8" stroke-dashoffset="-38.9"></circle>
+<circle cx="21" cy="21" r="15.915" fill="none" stroke="#5FD0C4" stroke-width="6" stroke-dasharray="14 86" stroke-dashoffset="-56.1"></circle>
+<circle cx="21" cy="21" r="15.915" fill="none" stroke="#D7C96A" stroke-width="6" stroke-dasharray="4.9 95.1" stroke-dashoffset="-70.1"></circle>
+</svg>
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 9px; font-size: 13px">
+<div style="display: flex; align-items: center; gap: 8px"><span style="width: 8px; height: 8px; border-radius: 999px; background: #7FB7FF"></span><span style="flex-grow: 1">Nourriture</span><span style="font-family: 'Geist Mono', monospace; color: #B5B5B5">40 %</span></div>
+<div style="display: flex; align-items: center; gap: 8px"><span style="width: 8px; height: 8px; border-radius: 999px; background: #C79BFF"></span><span style="flex-grow: 1">Transport</span><span style="font-family: 'Geist Mono', monospace; color: #B5B5B5">24 %</span></div>
+<div style="display: flex; align-items: center; gap: 8px"><span style="width: 8px; height: 8px; border-radius: 999px; background: #FF9DB8"></span><span style="flex-grow: 1">Famille</span><span style="font-family: 'Geist Mono', monospace; color: #B5B5B5">17 %</span></div>
+<div style="display: flex; align-items: center; gap: 8px"><span style="width: 8px; height: 8px; border-radius: 999px; background: #5FD0C4"></span><span style="flex-grow: 1">Forfaits</span><span style="font-family: 'Geist Mono', monospace; color: #B5B5B5">14 %</span></div>
+<div style="display: flex; align-items: center; gap: 8px"><span style="width: 8px; height: 8px; border-radius: 999px; background: #D7C96A"></span><span style="flex-grow: 1">Loisirs</span><span style="font-family: 'Geist Mono', monospace; color: #B5B5B5">5 %</span></div>
+</div>
+</div>
+</div>
+
+<div style="padding: 18px; border-radius: 18px; background: #1B1B1B; border: 1px solid #262626; display: flex; flex-direction: column; gap: 14px">
+<div style="font-size: 16px; font-weight: 600">Tendance sur 3 mois</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; align-items: end; height: 150px; padding: 0 8px">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><div style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #B5B5B5">58 900</div><div style="width: 100%; height: 104px; border-radius: 8px 8px 4px 4px; background: #3A3A3A"></div></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><div style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #B5B5B5">52 600</div><div style="width: 100%; height: 93px; border-radius: 8px 8px 4px 4px; background: #3A3A3A"></div></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><div style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #F2F2F2">46 350</div><div style="width: 100%; height: 82px; border-radius: 8px 8px 4px 4px; background: #E8B931"></div></div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; padding: 0 8px; font-size: 12px; color: #9A9A9A; text-align: center"><span>Août</span><span>Sept.</span><span style="color: #F2F2F2; font-weight: 600">Oct.</span></div>
+</div>
+
+<div style="padding: 6px 18px; border-radius: 18px; background: #1B1B1B; border: 1px solid #262626; display: flex; flex-direction: column">
+<div style="font-size: 16px; font-weight: 600; padding: 12px 0 6px">Top contreparties</div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #262626"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #9A9A9A; width: 16px">1</span><div style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px">Maquis Chez Tanti</span><span style="font-size: 12px; color: #9A9A9A">7 paiements</span></div><span style="font-family: 'Geist Mono', monospace; font-size: 14px">11 500 F</span></div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #262626"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #9A9A9A; width: 16px">2</span><div style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px">Junior</span><span style="font-family: 'Geist', sans-serif; font-size: 12px; color: #9A9A9A">2 envois</span></div><span style="font-family: 'Geist Mono', monospace; font-size: 14px">8 000 F</span></div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 12px 0"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #9A9A9A; width: 16px">3</span><div style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px">Forfaits MTN</span><span style="font-size: 12px; color: #9A9A9A">4 achats</span></div><span style="font-family: 'Geist Mono', monospace; font-size: 14px">6 500 F</span></div>
+</div>
+
+</div>
+
+<nav aria-label="Navigation principale" style="position: absolute; left: 0; right: 0; bottom: 0; height: 84px; box-sizing: border-box; padding: 8px 12px 18px; background: #161616; border-top: 1px solid #262626; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: center">
+<a href="Main.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 11px; text-decoration: none; color: #9A9A9A"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"></path></svg>Accueil</a>
+<a href="Operations.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 11px; text-decoration: none; color: #9A9A9A"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"></path></svg>Opérations</a>
+<a href="Ajout.dc.html" aria-label="Ajouter une dépense en espèces" style="justify-self: center; width: 52px; height: 52px; border-radius: 18px; background: #E8B931; color: #1F1B10; display: flex; align-items: center; justify-content: center; text-decoration: none"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></a>
+<a href="Bilan.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; text-decoration: none; color: #E8B931"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12A9 9 0 1 1 12 3v9z"></path><path d="M15 3.5A9 9 0 0 1 20.5 9H15z"></path></svg>Bilan</a>
+<a href="Budget.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 11px; text-decoration: none; color: #9A9A9A"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"></rect><path d="M8 2v4M16 2v4M3 10h18"></path></svg>Plans</a>
+</nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1400}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { p: 'Ce mois' }; }
+  renderVals() {
+    var self = this;
+    var per = ['Cette semaine', 'Ce mois', '3 derniers mois', 'Cette année', 'Dates…'];
+    return {
+      periode: this.state.p.toLowerCase(),
+      periodes: per.map(function (l) {
+        var on = self.state.p === l;
+        return { label: l, pick: function () { self.setState({ p: l }); },
+          style: 'flex-shrink: 0; height: 36px; padding: 0 14px; border-radius: 999px; font: 500 14px Geist, sans-serif; ' + (on ? 'background: #E8B931; color: #1F1B10; border: 1px solid #E8B931' : 'background: #1B1B1B; color: #D0D0D0; border: 1px solid #2E2E2E') };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

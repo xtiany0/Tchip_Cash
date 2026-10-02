@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Tchip !, widget d'écran d'accueil</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@500;600&amp;display=swap">
+<style>
+body{margin:0;background:#0b0b0b}
+</style>
+</helmet>
+<div style="width: 390px; height: 420px; box-sizing: border-box; padding: 24px 20px; background: #2A2D33; color: #F2F2F2; font-family: 'Geist', system-ui, sans-serif; display: flex; flex-direction: column; gap: 16px">
+
+<div style="padding: 16px; border-radius: 24px; background: #121212; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; justify-content: space-between; align-items: baseline">
+<div style="font-size: 15px; font-weight: 700">Tchip <span style="color: #E8B931">!</span></div>
+<div style="font-size: 12px; color: #9A9A9A">Reste aujourd'hui <span style="font-family: 'Geist Mono', monospace; color: #F2F2F2">1 300 F</span></div>
+</div>
+<div style="font-size: 12px; color: #9A9A9A">Dépense en espèces</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px">
+<sc-for list="{{cats}}" as="c" hint-placeholder-count="4">
+<button onClick="{{c.pick}}" aria-pressed="{{c.on}}" style="{{c.style}}"><span style="width: 8px; height: 8px; border-radius: 999px; background: {{c.color}}"></span>{{c.label}}</button>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px">
+<sc-for list="{{montants}}" as="m" hint-placeholder-count="4">
+<button onClick="{{m.pick}}" style="height: 44px; border-radius: 12px; border: 0; background: #E8B931; color: #1F1B10; font: 600 14px 'Geist Mono', monospace">{{m.label}}</button>
+</sc-for>
+</div>
+</div>
+
+<div style="padding: 12px 14px; border-radius: 14px; background: #1B1B1B; font-size: 13px; line-height: 1.45; color: #D0D0D0">{{retour}}</div>
+<div style="font-size: 12px; line-height: 1.45; color: #C9CCD2">Touche 1 : la catégorie. Touche 2 : le montant. La dépense est enregistrée sans ouvrir l'app. « Autre montant » se fait depuis l'app.</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":420}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { c: 'Transport', last: null }; }
+  renderVals() {
+    var self = this;
+    var cats = [['Repas', '#7FB7FF'], ['Transport', '#C79BFF'], ['Loisirs', '#D7C96A'], ['Autre', '#9A9A9A']];
+    return {
+      cats: cats.map(function (c) {
+        var on = self.state.c === c[0];
+        return { label: c[0], color: c[1], on: on ? 'true' : 'false', pick: function () { self.setState({ c: c[0] }); },
+          style: 'height: 44px; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font: 500 12px Geist, sans-serif; ' + (on ? 'background: #FBF1D3; color: #1F1B10; border: 1px solid #E8B931' : 'background: #1E1E1E; color: #D0D0D0; border: 1px solid #2E2E2E') };
+      }),
+      montants: ['200', '500', '1 000', '2 000'].map(function (m) {
+        return { label: m, pick: function () { self.setState({ last: m + ' F en ' + self.state.c }); } };
+      }),
+      retour: this.state.last ? 'Ajouté : ' + this.state.last + '.' : 'Exemple : touche Transport puis 500 pour noter un zém.'
+    };
+  }
+}
+</script>
+</body>
+</html>

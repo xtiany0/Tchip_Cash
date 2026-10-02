@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Tchip, opérations</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@500;600&amp;display=swap">
+<style>
+body{margin:0;background:#0b0b0b}
+a{color:#E8B931}a:hover{color:#F3CF5F}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #121212; color: #F2F2F2; font-family: 'Geist', system-ui, sans-serif; position: relative; overflow: hidden">
+<div style="padding: 28px 20px 110px; display: flex; flex-direction: column; gap: 16px">
+
+<div style="font-size: 24px; font-weight: 700; letter-spacing: -0.02em">Opérations</div>
+
+<label style="display: flex; align-items: center; gap: 10px; height: 46px; padding: 0 14px; border-radius: 14px; background: #1B1B1B; border: 1px solid #262626; color: #9A9A9A">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+<input type="search" placeholder="Chercher un nom, un montant…" aria-label="Chercher une opération" style="flex-grow: 1; background: transparent; border: 0; outline: none; color: #F2F2F2; font: 400 15px 'Geist', sans-serif">
+</label>
+
+<div style="display: flex; gap: 8px; overflow: hidden">
+<sc-for list="{{filtres}}" as="f" hint-placeholder-count="5">
+<button onClick="{{f.pick}}" style="{{f.style}}">{{f.label}}</button>
+</sc-for>
+</div>
+
+<div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 14px; background: rgba(232,185,49,0.12); border: 1px solid rgba(232,185,49,0.35)">
+<div style="flex-grow: 1; font-size: 14px; line-height: 1.4; color: #F2F2F2"><b>2 opérations à classer.</b> Tes corrections deviennent des règles.</div>
+<button style="height: 36px; padding: 0 14px; border-radius: 10px; border: 0; background: #E8B931; color: #1F1B10; font: 600 13px 'Geist', sans-serif">Classer</button>
+</div>
+
+<div style="font-size: 13px; font-weight: 600; color: #9A9A9A; text-transform: uppercase; letter-spacing: 0.06em">Aujourd'hui</div>
+<div style="display: flex; flex-direction: column; gap: 2px; margin-top: -6px">
+<div style="display: flex; align-items: center; gap: 12px; padding: 8px 0">
+<div style="width: 40px; height: 40px; border-radius: 12px; background: #1E1E1E; display: flex; align-items: center; justify-content: center; color: #B5B5B5"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"></rect><circle cx="12" cy="12" r="2.5"></circle></svg></div>
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px"><div style="font-size: 15px; font-weight: 500">Retrait</div><div style="font-size: 12px; color: #9A9A9A">MTN · 09:40</div></div>
+<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px"><div style="font-family: 'Geist Mono', monospace; font-size: 15px">−20 000 F</div><div style="font-size: 12px; color: #9A9A9A">frais 300 F</div></div>
+</div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 8px 0">
+<div style="width: 40px; height: 40px; border-radius: 12px; background: #1E1E1E; display: flex; align-items: center; justify-content: center; color: #C79BFF"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3"></circle><circle cx="18" cy="17" r="3"></circle><path d="M6 17l4-7h5l3 7M10 10 8 6H5"></path></svg></div>
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px"><div style="font-size: 15px; font-weight: 500">Zém Akpakpa</div><div style="font-size: 12px; color: #9A9A9A">Transport · Espèces · 08:14</div></div>
+<div style="font-family: 'Geist Mono', monospace; font-size: 15px">−500 F</div>
+</div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 8px 0">
+<div style="width: 40px; height: 40px; border-radius: 12px; background: #1E1E1E; display: flex; align-items: center; justify-content: center; color: #5FD0C4"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M2 9a15 15 0 0 1 20 0"></path><path d="M12 19.5h.01"></path></svg></div>
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px"><div style="font-size: 15px; font-weight: 500">Forfait 3 Go</div><div style="font-size: 12px; color: #9A9A9A">Forfaits internet · MTN · 07:52</div></div>
+<div style="font-family: 'Geist Mono', monospace; font-size: 15px">−1 500 F</div>
+</div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 8px 0">
+<div style="width: 40px; height: 40px; border-radius: 12px; background: #1E1E1E; border: 1px dashed #5A4A1A; display: flex; align-items: center; justify-content: center; color: #E8B931; font-size: 18px; font-weight: 600">?</div>
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 4px"><div style="font-size: 15px; font-weight: 500">Envoi à 96 xx xx 40</div><div style="display: flex; gap: 6px; align-items: center"><span style="font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: #FBF1D3; color: #1F1B10">À classer</span><span style="font-size: 12px; color: #9A9A9A">Celtiis</span></div></div>
+<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px"><div style="font-family: 'Geist Mono', monospace; font-size: 15px">−3 000 F</div><div style="font-size: 12px; color: #9A9A9A">frais 25 F</div></div>
+</div>
+</div>
+
+<div style="font-size: 13px; font-weight: 600; color: #9A9A9A; text-transform: uppercase; letter-spacing: 0.06em">Hier</div>
+<div style="display: flex; flex-direction: column; gap: 2px; margin-top: -6px">
+<div style="display: flex; align-items: center; gap: 12px; padding: 8px 0">
+<div style="width: 40px; height: 40px; border-radius: 12px; background: #1E1E1E; display: flex; align-items: center; justify-content: center; color: #4CC28A"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7 7 17M7 8v9h9"></path></svg></div>
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px"><div style="font-size: 15px; font-weight: 500">Reçu de Maman</div><div style="font-size: 12px; color: #9A9A9A">Réception · Moov · 19:03</div></div>
+<div style="font-family: 'Geist Mono', monospace; font-size: 15px; color: #4CC28A">+20 000 F</div>
+</div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 8px 0">
+<div style="width: 40px; height: 40px; border-radius: 12px; background: #1E1E1E; display: flex; align-items: center; justify-content: center; color: #7FB7FF"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10M17 3c-2 0-3 2-3 5s1 4 3 4v9"></path></svg></div>
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px"><div style="font-size: 15px; font-weight: 500">Maquis Chez Tanti</div><div style="font-size: 12px; color: #9A9A9A">Nourriture · Paiement MTN · 13:20</div></div>
+<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px"><div style="font-family: 'Geist Mono', monospace; font-size: 15px">−2 500 F</div><div style="font-size: 12px; color: #9A9A9A">frais 0 F</div></div>
+</div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 8px 0">
+<div style="width: 40px; height: 40px; border-radius: 12px; background: #1E1E1E; display: flex; align-items: center; justify-content: center; color: #FF9DB8"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"></path></svg></div>
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px"><div style="font-size: 15px; font-weight: 500">Envoi à Junior</div><div style="font-size: 12px; color: #9A9A9A">Famille · MTN · 17:45</div></div>
+<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px"><div style="font-family: 'Geist Mono', monospace; font-size: 15px">−5 000 F</div><div style="font-size: 12px; color: #9A9A9A">frais 50 F</div></div>
+</div>
+</div>
+
+</div>
+
+<nav aria-label="Navigation principale" style="position: absolute; left: 0; right: 0; bottom: 0; height: 84px; box-sizing: border-box; padding: 8px 12px 18px; background: #161616; border-top: 1px solid #262626; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: center">
+<a href="Main.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 11px; text-decoration: none; color: #9A9A9A"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"></path></svg>Accueil</a>
+<a href="Operations.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; text-decoration: none; color: #E8B931"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"></path></svg>Opérations</a>
+<a href="Ajout.dc.html" aria-label="Ajouter une dépense en espèces" style="justify-self: center; width: 52px; height: 52px; border-radius: 18px; background: #E8B931; color: #1F1B10; display: flex; align-items: center; justify-content: center; text-decoration: none"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></a>
+<a href="Bilan.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 11px; text-decoration: none; color: #9A9A9A"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12A9 9 0 1 1 12 3v9z"></path><path d="M15 3.5A9 9 0 0 1 20.5 9H15z"></path></svg>Bilan</a>
+<a href="Budget.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 11px; text-decoration: none; color: #9A9A9A"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"></rect><path d="M8 2v4M16 2v4M3 10h18"></path></svg>Plans</a>
+</nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { f: 'Tout' }; }
+  renderVals() {
+    var self = this;
+    var labels = ['Tout', 'MTN', 'Moov', 'Celtiis', 'Espèces'];
+    return {
+      filtres: labels.map(function (l) {
+        var on = self.state.f === l;
+        return {
+          label: l,
+          pick: function () { self.setState({ f: l }); },
+          style: 'flex-shrink: 0; height: 36px; padding: 0 14px; border-radius: 999px; font: 500 14px Geist, sans-serif; ' + (on ? 'background: #E8B931; color: #1F1B10; border: 1px solid #E8B931' : 'background: #1B1B1B; color: #D0D0D0; border: 1px solid #2E2E2E')
+        };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

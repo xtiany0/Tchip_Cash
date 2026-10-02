@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Tchip !, plans</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@500;600&amp;display=swap">
+<style>
+body{margin:0;background:#0b0b0b}
+a{color:#E8B931}a:hover{color:#F3CF5F}
+</style>
+</helmet>
+<div style="width: 390px; height: 1060px; box-sizing: border-box; background: #121212; color: #F2F2F2; font-family: 'Geist', system-ui, sans-serif; position: relative; overflow: hidden">
+<div style="padding: 28px 20px 110px; display: flex; flex-direction: column; gap: 18px">
+
+<div style="display: flex; justify-content: space-between; align-items: center">
+<div style="font-size: 24px; font-weight: 700; letter-spacing: -0.02em">Plan</div>
+<button style="height: 40px; padding: 0 14px; border-radius: 12px; border: 1px solid #2E2E2E; background: #1B1B1B; color: #F2F2F2; font: 500 14px 'Geist', sans-serif">+ Nouveau plan</button>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 8px">
+<label for="nom" style="font-size: 13px; color: #9A9A9A">Nom du plan</label>
+<input id="nom" value="Semaine de cours" style="height: 48px; padding: 0 14px; border-radius: 12px; background: #1B1B1B; border: 1px solid #2E2E2E; color: #F2F2F2; font: 500 16px 'Geist', sans-serif">
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="font-size: 13px; color: #9A9A9A">Période</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 4px; border-radius: 12px; background: #1B1B1B; border: 1px solid #262626">
+<sc-for list="{{periodes}}" as="p" hint-placeholder-count="3">
+<button onClick="{{p.pick}}" aria-pressed="{{p.on}}" style="{{p.style}}">{{p.label}}</button>
+</sc-for>
+</div>
+<div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #D0D0D0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"></rect><path d="M8 2v4M16 2v4M3 10h18"></path></svg>{{dates}}</div>
+</div>
+
+<div style="padding: 16px; border-radius: 18px; background: #1B1B1B; border: 1px solid #262626; display: flex; justify-content: space-between; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<div style="font-size: 13px; color: #9A9A9A">Plafond global du plan</div>
+<div style="font-family: 'Geist Mono', monospace; font-size: 26px; font-weight: 600">20 000 F</div>
+</div>
+<button aria-label="Modifier le plafond global" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid #2E2E2E; background: transparent; color: #D0D0D0; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"></path></svg></button>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-size: 16px; font-weight: 600">Plafonds par catégorie</div>
+<div style="border-radius: 16px; background: #1B1B1B; border: 1px solid #262626; padding: 0 16px">
+<sc-for list="{{cats}}" as="c" hint-placeholder-count="3">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 14px 0; border-bottom: {{c.border}}">
+<div style="display: flex; align-items: center; gap: 10px"><span style="width: 8px; height: 8px; border-radius: 999px; background: {{c.color}}"></span><div style="flex-grow: 1; font-size: 15px">{{c.nom}}</div><div style="font-family: 'Geist Mono', monospace; font-size: 15px">{{c.cap}}</div></div>
+<div style="display: flex; gap: 6px">
+<button onClick="{{c.jour}}" style="{{c.sJour}}">par jour</button>
+<button onClick="{{c.per}}" style="{{c.sPer}}">sur la période</button>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-size: 16px; font-weight: 600">Plafonds ponctuels</div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 16px; background: #1B1B1B; border: 1px solid #262626">
+<div style="width: 44px; height: 44px; flex-shrink: 0; border-radius: 12px; background: #FBF1D3; color: #1F1B10; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1"><span style="font-size: 10px; font-weight: 600">SAM</span><span style="font-size: 16px; font-weight: 700">17</span></div>
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px"><div style="font-size: 15px">Loisirs : 5 000 F</div><div style="font-size: 12px; color: #9A9A9A">Remplace les 800 F habituels ce jour-là</div></div>
+</div>
+<button style="height: 44px; border-radius: 12px; border: 1px dashed #5A4A1A; background: transparent; color: #E8B931; font: 600 14px 'Geist', sans-serif">+ Plafond pour un jour précis</button>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-size: 16px; font-weight: 600">Alertes</div>
+<div style="border-radius: 16px; background: #1B1B1B; border: 1px solid #262626; padding: 0 16px">
+<sc-for list="{{alertes}}" as="a" hint-placeholder-count="3">
+<div style="display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: {{a.border}}">
+<div style="width: 10px; height: 10px; border-radius: 999px; background: {{a.dot}}"></div>
+<div style="flex-grow: 1; font-size: 14px">{{a.label}}</div>
+<button role="switch" aria-checked="{{a.checked}}" aria-label="{{a.label}}" onClick="{{a.toggle}}" style="{{a.track}}"><span style="{{a.knob}}"></span></button>
+</div>
+</sc-for>
+</div>
+</div>
+
+</div>
+
+<nav aria-label="Navigation principale" style="position: absolute; left: 0; right: 0; bottom: 0; height: 84px; box-sizing: border-box; padding: 8px 12px 18px; background: #161616; border-top: 1px solid #262626; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: center">
+<a href="Main.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 11px; text-decoration: none; color: #9A9A9A"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"></path></svg>Accueil</a>
+<a href="Operations.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 11px; text-decoration: none; color: #9A9A9A"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"></path></svg>Opérations</a>
+<a href="Ajout.dc.html" aria-label="Ajouter une dépense en espèces" style="justify-self: center; width: 52px; height: 52px; border-radius: 18px; background: #E8B931; color: #1F1B10; display: flex; align-items: center; justify-content: center; text-decoration: none"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></a>
+<a href="Bilan.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 11px; text-decoration: none; color: #9A9A9A"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12A9 9 0 1 1 12 3v9z"></path><path d="M15 3.5A9 9 0 0 1 20.5 9H15z"></path></svg>Bilan</a>
+<a href="Budget.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; text-decoration: none; color: #E8B931"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"></rect><path d="M8 2v4M16 2v4M3 10h18"></path></svg>Plans</a>
+</nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1060}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { p: 'Une semaine', a: [true, true, true], r: ['jour', 'jour', 'per'] }; }
+  renderVals() {
+    var self = this;
+    var per = ['Un jour', 'Une semaine', 'Dates libres'];
+    var dates = { 'Un jour': 'Lundi 12 octobre', 'Une semaine': 'Du lundi 12 au dimanche 18 octobre', 'Dates libres': 'Du 12 octobre au 8 novembre' };
+    var chip = function (on) { return 'height: 32px; padding: 0 12px; border-radius: 999px; font: 500 13px Geist, sans-serif; ' + (on ? 'background: #FBF1D3; color: #1F1B10; border: 1px solid #E8B931' : 'background: transparent; color: #B5B5B5; border: 1px solid #2E2E2E'); };
+    var cats = [['Nourriture', '#7FB7FF', '2 000 F', '12 000 F'], ['Transport', '#C79BFF', '1 200 F', '7 000 F'], ['Forfaits internet', '#5FD0C4', '300 F', '1 500 F']];
+    var al = [['À 80 % du plafond', '#E07A2E'], ['À 100 % du plafond', '#D64545'], ['À chaque dépense dans le rouge', '#D64545']];
+    return {
+      dates: dates[this.state.p],
+      periodes: per.map(function (l) {
+        var on = self.state.p === l;
+        return { label: l, on: on ? 'true' : 'false', pick: function () { self.setState({ p: l }); },
+          style: 'height: 40px; border: 0; border-radius: 9px; font: 500 14px Geist, sans-serif; ' + (on ? 'background: #E8B931; color: #1F1B10' : 'background: transparent; color: #B5B5B5') };
+      }),
+      cats: cats.map(function (c, i) {
+        var j = self.state.r[i] === 'jour';
+        var set = function (v) { return function () { var n = self.state.r.slice(); n[i] = v; self.setState({ r: n }); }; };
+        return { nom: c[0], color: c[1], cap: j ? c[2] + ' / jour' : c[3], border: i < cats.length - 1 ? '1px solid #262626' : '0',
+          jour: set('jour'), per: set('per'), sJour: chip(j), sPer: chip(!j) };
+      }),
+      alertes: al.map(function (x, i) {
+        var on = self.state.a[i];
+        return { label: x[0], dot: x[1], checked: on ? 'true' : 'false',
+          border: i < al.length - 1 ? '1px solid #262626' : '0',
+          toggle: function () { var n = self.state.a.slice(); n[i] = !n[i]; self.setState({ a: n }); },
+          track: 'flex-shrink: 0; width: 46px; height: 28px; border-radius: 999px; border: 0; padding: 3px; display: flex; ' + (on ? 'background: #E8B931; justify-content: flex-end' : 'background: #333333; justify-content: flex-start'),
+          knob: 'width: 22px; height: 22px; border-radius: 999px; background: ' + (on ? '#1F1B10' : '#9A9A9A') };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>
