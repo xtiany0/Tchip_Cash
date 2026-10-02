@@ -1,6 +1,7 @@
 // Download page served as static assets by a Cloudflare Worker.
-// Git builds (Workers Builds) deploy download/site as is. The APK and
-// version.json are added by tool/deploy_download.sh, which overrides --assets.
+// Deployed by .github/workflows/release.yml through tool/deploy_download.sh,
+// which adds the APK and version.json and overrides --assets. Keep Cloudflare
+// Git builds off: they would redeploy download/site without the APK.
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "tchip-cash",
