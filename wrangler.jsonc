@@ -1,0 +1,12 @@
+// Download page served as static assets by a Cloudflare Worker.
+// Git builds (Workers Builds) deploy download/site as is. The APK and
+// version.json are added by tool/deploy_download.sh, which overrides --assets.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "tchip-cash",
+  "compatibility_date": "2026-10-02",
+  "assets": {
+    "directory": "download/site",
+    "not_found_handling": "404-page"
+  }
+}
