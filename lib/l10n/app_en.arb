@@ -1,0 +1,32 @@
+{
+  "@@locale": "en",
+  "appName": "Tchip\u202F!",
+
+  "navHome": "Home",
+  "navOperations": "Transactions",
+  "navReport": "Report",
+  "navPlans": "Plans",
+  "navSettings": "Settings",
+  "navAddCash": "Add a cash expense",
+  "navMainLabel": "Main navigation",
+  "back": "Back",
+  "close": "Close",
+
+  "splashTagline": "Your money, under control.",
+  "splashLoading": "Loading your transactions…",
+
+  "homeSettingsTooltip": "Settings",
+  "screenDay": "Today",
+  "screenAddCash": "Cash expense",
+  "screenPlan": "Plan",
+  "comingSoon": "Screen under construction",
+
+  "settingsLanguage": "Language",
+  "settingsLanguageAuto": "Automatic",
+  "settingsLanguageAutoSub": "Phone language ({language})",
+  "languageFrench": "Français",
+  "languageEnglish": "English",
+  "settingsFormatHint": "Amounts and dates follow the chosen language: {amount} · {date}.",
+
+  "amountF": "{amount} F"
+}

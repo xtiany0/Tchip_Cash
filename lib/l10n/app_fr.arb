@@ -1,0 +1,36 @@
+{
+  "@@locale": "fr",
+  "appName": "Tchip\u202F!",
+  "@appName": {"description": "App name. Contains a narrow no-break space before the exclamation mark."},
+
+  "navHome": "Accueil",
+  "navOperations": "Opérations",
+  "navReport": "Bilan",
+  "navPlans": "Plans",
+  "navSettings": "Réglages",
+  "navAddCash": "Ajouter une dépense en espèces",
+  "navMainLabel": "Navigation principale",
+  "back": "Retour",
+  "close": "Fermer",
+
+  "splashTagline": "Tes finances sous contrôle.",
+  "splashLoading": "Chargement de tes opérations…",
+
+  "homeSettingsTooltip": "Réglages",
+  "screenDay": "Aujourd'hui",
+  "screenAddCash": "Dépense en espèces",
+  "screenPlan": "Plan",
+  "comingSoon": "Écran en construction",
+
+  "settingsLanguage": "Langue",
+  "settingsLanguageAuto": "Automatique",
+  "settingsLanguageAutoSub": "Langue du téléphone ({language})",
+  "@settingsLanguageAutoSub": {"placeholders": {"language": {"type": "String"}}},
+  "languageFrench": "Français",
+  "languageEnglish": "English",
+  "settingsFormatHint": "Montants et dates suivent la langue choisie : {amount} · {date}.",
+  "@settingsFormatHint": {"placeholders": {"amount": {"type": "String"}, "date": {"type": "String"}}},
+
+  "amountF": "{amount} F",
+  "@amountF": {"placeholders": {"amount": {"type": "String"}}}
+}
