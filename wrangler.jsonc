@@ -5,6 +5,8 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "tchip-cash",
   "compatibility_date": "2026-10-02",
+  "workers_dev": true,
+  "preview_urls": true,
   "assets": {
     "directory": "download/site",
     "not_found_handling": "404-page"
