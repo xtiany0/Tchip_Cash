@@ -1,0 +1,12 @@
+/tchip.apk
+  Content-Type: application/vnd.android.package-archive
+  Content-Disposition: attachment; filename="tchip.apk"
+  Cache-Control: no-cache
+
+/version.json
+  Cache-Control: no-cache
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  X-Robots-Tag: noindex
