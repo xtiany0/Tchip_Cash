@@ -1,0 +1,5 @@
+package com.tchipmo.app
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity : FlutterActivity()
