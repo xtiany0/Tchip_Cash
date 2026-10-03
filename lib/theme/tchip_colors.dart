@@ -28,6 +28,9 @@ abstract final class TchipColors {
   static const onYellow = Color(0xFF1F1B10);
   static const yellowDashed = Color(0xFF5A4A1A);
 
+  /// Yellow at 14 %, behind small yellow icons.
+  static const yellowTint = Color(0x24E8B931);
+
   // Budget states: base colour for bars and fills, light tone for text on dark.
   static const ok = Color(0xFF2E9E6A);
   static const okText = Color(0xFF4CC28A);

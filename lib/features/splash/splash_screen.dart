@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/settings/onboarding_setting.dart';
 import '../../l10n/gen/app_localizations.dart';
 import '../../providers/bootstrap_provider.dart';
 import '../../theme/tchip_theme.dart';
@@ -14,7 +15,8 @@ import '../../theme/tchip_theme.dart';
 /// - the tagline fades in at 1.1 s and stays;
 /// - while data is loading, a domino wave tilts each glyph 16° to the right
 ///   (pivot bottom right), 100 ms apart, every 1.8 s, starting at 1.8 s.
-/// Leaves for home as soon as the intro has played and data is ready.
+/// Leaves as soon as the intro has played and data is ready: to the welcome
+/// screen on first launch, to home afterwards.
 class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
 
@@ -69,7 +71,8 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
     if (!ref.read(bootstrapProvider).hasValue) return;
     _left = true;
     _domino.stop();
-    context.go('/home');
+    final done = ref.read(onboardingProvider).done;
+    context.go(done ? '/home' : '/onboarding');
   }
 
   @override

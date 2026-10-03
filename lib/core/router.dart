@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../features/home/home_screen.dart';
+import '../features/onboarding/onboarding_screen.dart';
 import '../features/settings/settings_screen.dart';
 import '../features/shell/app_shell.dart';
 import '../features/splash/splash_screen.dart';
 import '../l10n/gen/app_localizations.dart';
 import '../widgets/placeholder_screen.dart';
-
-final _rootKey = GlobalKey<NavigatorState>();
 
 Widget _placeholder(
   String Function(AppLocalizations l) title, {
@@ -20,11 +20,20 @@ Widget _placeholder(
   ),
 );
 
-final appRouter = GoRouter(
-  navigatorKey: _rootKey,
+/// One router per ProviderScope, so every app start (and every test) begins
+/// at the splash.
+final routerProvider = Provider<GoRouter>((ref) {
+  final router = _buildRouter(GlobalKey<NavigatorState>());
+  ref.onDispose(router.dispose);
+  return router;
+});
+
+GoRouter _buildRouter(GlobalKey<NavigatorState> rootKey) => GoRouter(
+  navigatorKey: rootKey,
   initialLocation: '/splash',
   routes: [
     GoRoute(path: '/splash', builder: (_, _) => const SplashScreen()),
+    GoRoute(path: '/onboarding', builder: (_, _) => const OnboardingScreen()),
     StatefulShellRoute.indexedStack(
       builder: (_, _, shell) => AppShell(navigationShell: shell),
       branches: [
@@ -73,7 +82,7 @@ final appRouter = GoRouter(
     ),
     GoRoute(
       path: '/add',
-      parentNavigatorKey: _rootKey,
+      parentNavigatorKey: rootKey,
       pageBuilder: (_, _) => MaterialPage(
         fullscreenDialog: true,
         child: _placeholder(
@@ -84,7 +93,7 @@ final appRouter = GoRouter(
     ),
     GoRoute(
       path: '/settings',
-      parentNavigatorKey: _rootKey,
+      parentNavigatorKey: rootKey,
       builder: (_, _) => const SettingsScreen(),
     ),
   ],

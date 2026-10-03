@@ -1,7 +1,6 @@
 {
   "@@locale": "en",
-  "appName": "Tchip\u202F!",
-
+  "appName": "Tchip !",
   "navHome": "Home",
   "navOperations": "Transactions",
   "navReport": "Report",
@@ -11,22 +10,32 @@
   "navMainLabel": "Main navigation",
   "back": "Back",
   "close": "Close",
-
   "splashTagline": "Your money, under control.",
   "splashLoading": "Loading your transactions…",
-
   "homeSettingsTooltip": "Settings",
   "screenDay": "Today",
   "screenAddCash": "Cash expense",
   "screenPlan": "Plan",
   "comingSoon": "Screen under construction",
-
   "settingsLanguage": "Language",
   "settingsLanguageAuto": "Automatic",
   "settingsLanguageAutoSub": "Phone language ({language})",
   "languageFrench": "Français",
   "languageEnglish": "English",
   "settingsFormatHint": "Amounts and dates follow the chosen language: {amount} · {date}.",
-
-  "amountF": "{amount} F"
+  "amountF": "{amount} F",
+  "onboardingSampleSms": "Transfer of {amount} to 97 xx xx 12 successful. Fee: {fee}. Balance: {balance}.",
+  "onboardingArrow": "Tchip ! reads it, sorts it and notes the fee",
+  "onboardingSampleTitle": "Transfer · Family",
+  "onboardingSampleMeta": "MTN · fee {fee}",
+  "onboardingTitle": "Finally see where your MoMo money goes.",
+  "onboardingBody": "Tchip ! reads your MTN, Moov and Celtiis SMS, sorts every expense and warns you before you go over your limit.",
+  "onboardingLocalStrong": "100 % on your phone.",
+  "onboardingLocalRest": "No data is sent online.",
+  "onboardingOnlyOperators": "Only Mobile Money operator SMS are read.",
+  "onboardingAllowSms": "Allow SMS reading",
+  "onboardingWithoutSms": "Start without SMS",
+  "onboardingDenied": "Permission denied. You can try again, or start without SMS and add your expenses by hand.",
+  "onboardingBlocked": "SMS reading is blocked for Tchip ! Turn it on in the phone settings, under Permissions.",
+  "onboardingOpenSettings": "Open phone settings"
 }

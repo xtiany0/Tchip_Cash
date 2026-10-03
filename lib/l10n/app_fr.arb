@@ -1,8 +1,9 @@
 {
   "@@locale": "fr",
-  "appName": "Tchip\u202F!",
-  "@appName": {"description": "App name. Contains a narrow no-break space before the exclamation mark."},
-
+  "appName": "Tchip !",
+  "@appName": {
+    "description": "App name. Contains a narrow no-break space before the exclamation mark."
+  },
   "navHome": "Accueil",
   "navOperations": "Opérations",
   "navReport": "Bilan",
@@ -12,25 +13,76 @@
   "navMainLabel": "Navigation principale",
   "back": "Retour",
   "close": "Fermer",
-
   "splashTagline": "Tes finances sous contrôle.",
   "splashLoading": "Chargement de tes opérations…",
-
   "homeSettingsTooltip": "Réglages",
   "screenDay": "Aujourd'hui",
   "screenAddCash": "Dépense en espèces",
   "screenPlan": "Plan",
   "comingSoon": "Écran en construction",
-
   "settingsLanguage": "Langue",
   "settingsLanguageAuto": "Automatique",
   "settingsLanguageAutoSub": "Langue du téléphone ({language})",
-  "@settingsLanguageAutoSub": {"placeholders": {"language": {"type": "String"}}},
+  "@settingsLanguageAutoSub": {
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
+  },
   "languageFrench": "Français",
   "languageEnglish": "English",
   "settingsFormatHint": "Montants et dates suivent la langue choisie : {amount} · {date}.",
-  "@settingsFormatHint": {"placeholders": {"amount": {"type": "String"}, "date": {"type": "String"}}},
-
+  "@settingsFormatHint": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "amountF": "{amount} F",
-  "@amountF": {"placeholders": {"amount": {"type": "String"}}}
+  "@amountF": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardingSampleSms": "Transfert de {amount} vers 97 xx xx 12 réussi. Frais : {fee}. Solde : {balance}.",
+  "@onboardingSampleSms": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      },
+      "fee": {
+        "type": "String"
+      },
+      "balance": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardingArrow": "Tchip ! lit, classe et note les frais",
+  "onboardingSampleTitle": "Envoi · Famille",
+  "onboardingSampleMeta": "MTN · frais {fee}",
+  "@onboardingSampleMeta": {
+    "placeholders": {
+      "fee": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardingTitle": "Sache enfin où part ton argent MoMo.",
+  "onboardingBody": "Tchip ! lit tes SMS MTN, Moov et Celtiis, classe chaque dépense et te prévient avant que tu dépasses ton plafond.",
+  "onboardingLocalStrong": "100 % sur ton téléphone.",
+  "onboardingLocalRest": "Aucune donnée n'est envoyée en ligne.",
+  "onboardingOnlyOperators": "Seuls les SMS des opérateurs Mobile Money sont lus.",
+  "onboardingAllowSms": "Autoriser la lecture des SMS",
+  "onboardingWithoutSms": "Commencer sans les SMS",
+  "onboardingDenied": "Permission refusée. Tu peux réessayer ou commencer sans les SMS et ajouter tes dépenses à la main.",
+  "onboardingBlocked": "La lecture des SMS est bloquée pour Tchip ! Active-la dans les réglages du téléphone, rubrique Autorisations.",
+  "onboardingOpenSettings": "Ouvrir les réglages du téléphone"
 }

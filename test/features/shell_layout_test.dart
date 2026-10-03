@@ -10,7 +10,10 @@ Future<void> _pumpHome(WidgetTester tester, Size size) async {
   tester.view.devicePixelRatio = 1;
   addTearDown(tester.view.reset);
 
-  SharedPreferences.setMockInitialValues({'language': 'fr'});
+  SharedPreferences.setMockInitialValues({
+    'language': 'fr',
+    'onboarding_done': true,
+  });
   final prefs = await SharedPreferences.getInstance();
   await tester.pumpWidget(
     ProviderScope(
