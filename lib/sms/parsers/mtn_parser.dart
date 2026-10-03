@@ -19,12 +19,21 @@ class MtnParser extends SmsParser {
     r'(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})',
     caseSensitive: false,
   );
-  static final _fee = RegExp(r'Frais\s*:\s*(\d[\d\s]*)\s*F', caseSensitive: false);
-  static final _balance = RegExp(r'Solde\s*:\s*(\d[\d\s]*)\s*F', caseSensitive: false);
+  static final _fee = RegExp(
+    r'Frais\s*:\s*(\d[\d\s]*)\s*F',
+    caseSensitive: false,
+  );
+  static final _balance = RegExp(
+    r'Solde\s*:\s*(\d[\d\s]*)\s*F',
+    caseSensitive: false,
+  );
   static final _id = RegExp(r'\bID\s*:\s*(\d+)');
 
   /// Merchants that sell data or airtime bundles.
-  static final _bundle = RegExp(r'\b(BUY DATA|FORFAIT|BUNDLE|CREDIT)\b', caseSensitive: false);
+  static final _bundle = RegExp(
+    r'\b(BUY DATA|FORFAIT|BUNDLE|CREDIT)\b',
+    caseSensitive: false,
+  );
 
   @override
   Transaction? parse(String body) {

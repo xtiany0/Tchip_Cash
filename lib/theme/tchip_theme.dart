@@ -41,18 +41,21 @@ abstract final class TchipTheme {
       textTheme: _textTheme,
       materialTapTargetSize: MaterialTapTargetSize.padded,
       filledButtonTheme: FilledButtonThemeData(
-        style: FilledButton.styleFrom(
-          backgroundColor: TchipColors.yellow,
-          foregroundColor: TchipColors.onYellow,
-          minimumSize: const Size(TchipSpacing.touch, 52),
-          shape: buttonShape,
-          textStyle: TchipText.body.copyWith(
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-          ),
-        ).copyWith(
-          overlayColor: const WidgetStatePropertyAll(TchipColors.yellowDark),
-        ),
+        style:
+            FilledButton.styleFrom(
+              backgroundColor: TchipColors.yellow,
+              foregroundColor: TchipColors.onYellow,
+              minimumSize: const Size(TchipSpacing.touch, 52),
+              shape: buttonShape,
+              textStyle: TchipText.body.copyWith(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+              ),
+            ).copyWith(
+              overlayColor: const WidgetStatePropertyAll(
+                TchipColors.yellowDark,
+              ),
+            ),
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
@@ -74,7 +77,10 @@ abstract final class TchipTheme {
         filled: true,
         fillColor: TchipColors.card,
         hintStyle: TchipText.body.copyWith(color: TchipColors.textSecondary),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 14,
+          vertical: 14,
+        ),
         border: _inputBorder(TchipColors.borderStrong),
         enabledBorder: _inputBorder(TchipColors.borderStrong),
         focusedBorder: _inputBorder(TchipColors.yellow),

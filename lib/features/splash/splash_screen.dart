@@ -192,10 +192,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
           opacity: bang.opacity,
           child: Transform.translate(
             offset: Offset(0, bang.dy),
-            child: Text(
-              '!',
-              style: style.copyWith(color: TchipColors.yellow),
-            ),
+            child: Text('!', style: style.copyWith(color: TchipColors.yellow)),
           ),
         ),
       ),
@@ -232,8 +229,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
   Widget _tilt(int index, Widget child) {
     if (!_domino.isAnimating) return child;
     final periodMs = _dominoPeriod.inMilliseconds;
-    final phaseMs =
-        (_domino.value * periodMs - index * 100) % periodMs;
+    final phaseMs = (_domino.value * periodMs - index * 100) % periodMs;
     final p = phaseMs / periodMs;
     double deg;
     if (p < 0.12) {

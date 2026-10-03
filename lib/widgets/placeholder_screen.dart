@@ -37,7 +37,9 @@ class PlaceholderScreen extends StatelessWidget {
                     icon: leading == PlaceholderLeading.close
                         ? Icons.close
                         : Icons.chevron_left,
-                    label: leading == PlaceholderLeading.close ? l.close : l.back,
+                    label: leading == PlaceholderLeading.close
+                        ? l.close
+                        : l.back,
                     onPressed: () => context.pop(),
                   ),
                   const SizedBox(width: TchipSpacing.md),
@@ -58,7 +60,9 @@ class PlaceholderScreen extends StatelessWidget {
               child: Text(
                 l.comingSoon,
                 textAlign: TextAlign.center,
-                style: TchipText.body.copyWith(color: TchipColors.textSecondary),
+                style: TchipText.body.copyWith(
+                  color: TchipColors.textSecondary,
+                ),
               ),
             ),
           ],

@@ -13,14 +13,14 @@ abstract class SmsParser {
 /// Shared helpers for operator parsers.
 abstract final class ParseUtils {
   /// "12 500", "12500", "3 300" (any space kind) → 12500.
-  static int amount(String s) =>
-      int.parse(s.replaceAll(RegExp(r'\s'), ''));
+  static int amount(String s) => int.parse(s.replaceAll(RegExp(r'\s'), ''));
 
   /// Collapses runs of spaces and trims.
   static String name(String s) => s.replaceAll(RegExp(r'\s+'), ' ').trim();
 
   /// "2026-09-30 08:12:37" → DateTime (local time).
-  static DateTime isoDateTime(String s) => DateTime.parse(s.replaceFirst(' ', 'T'));
+  static DateTime isoDateTime(String s) =>
+      DateTime.parse(s.replaceFirst(' ', 'T'));
 
   /// "11/08/2026 13:07:15" → DateTime (local time).
   static DateTime frDateTime(String date, String time) {

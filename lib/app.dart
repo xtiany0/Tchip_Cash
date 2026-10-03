@@ -21,7 +21,8 @@ class TchipApp extends ConsumerWidget {
       locale: language.locale,
       supportedLocales: AppLocalizations.supportedLocales,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
-      localeListResolutionCallback: (locales, _) => resolveDeviceLocale(locales),
+      localeListResolutionCallback: (locales, _) =>
+          resolveDeviceLocale(locales),
       routerConfig: ref.watch(routerProvider),
     );
   }

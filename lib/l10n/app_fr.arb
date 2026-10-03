@@ -84,5 +84,125 @@
   "onboardingWithoutSms": "Commencer sans les SMS",
   "onboardingDenied": "Permission refusée. Tu peux réessayer ou commencer sans les SMS et ajouter tes dépenses à la main.",
   "onboardingBlocked": "La lecture des SMS est bloquée pour Tchip ! Active-la dans les réglages du téléphone, rubrique Autorisations.",
-  "onboardingOpenSettings": "Ouvrir les réglages du téléphone"
+  "onboardingOpenSettings": "Ouvrir les réglages du téléphone",
+  "homeGreeting": "Bonjour",
+  "homePlanRange": "Plan du {start} au {end}",
+  "@homePlanRange": {
+    "placeholders": {
+      "start": {
+        "type": "String"
+      },
+      "end": {
+        "type": "String"
+      }
+    }
+  },
+  "homeBadgeOk": "Dans le budget",
+  "homeBadgeWarning": "{percent} % du plafond",
+  "@homeBadgeWarning": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "homeBadgeOver": "Plafond dépassé",
+  "homeCapOf": "/ {amount}",
+  "@homeCapOf": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "homeMsgOk": "{days, plural, =0{Il te reste {amount} pour aujourd'hui.} =1{Il te reste {amount} pour 1 jour.} other{Il te reste {amount} pour {days} jours.}}",
+  "@homeMsgOk": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      },
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "homeMsgWarning": "{days, plural, =0{Plus que {amount} pour aujourd'hui.} =1{Plus que {amount} pour 1 jour.} other{Plus que {amount} pour {days} jours.}}",
+  "@homeMsgWarning": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      },
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "homeMsgOver": "Tu as dépassé le plafond du plan de {amount}.",
+  "@homeMsgOver": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "homeNoPlanTitle": "Aucun plan en cours",
+  "homeNoPlanAction": "Créer un plan",
+  "homeTodayLeft": "Reste {amount}",
+  "@homeTodayLeft": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "homeTodayOver": "Dépassé de {amount}",
+  "@homeTodayOver": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "homeTodayHint": "Voir le détail du jour",
+  "homeReceivedMonth": "Reçu ce mois",
+  "homeFeesMonth": "Frais ce mois",
+  "homeLatest": "Dernières opérations",
+  "homeSeeAll": "Tout voir",
+  "homeSampleHint": "Données d'exemple",
+  "opFee": "frais {amount}",
+  "@opFee": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "opCash": "Espèces",
+  "opReceivedFrom": "Reçu de {name}",
+  "@opReceivedFrom": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "opSentTo": "Envoi à {name}",
+  "@opSentTo": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "typeSend": "Envoi",
+  "typeReceive": "Réception",
+  "typeWithdrawal": "Retrait",
+  "typePayment": "Paiement",
+  "typeBundle": "Forfait",
+  "catFood": "Nourriture",
+  "catTransport": "Transport",
+  "catBundles": "Forfaits",
+  "catFamily": "Famille",
+  "catLeisure": "Loisirs",
+  "catOther": "Autre"
 }

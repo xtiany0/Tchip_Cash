@@ -42,6 +42,9 @@ abstract final class TchipBreakpoints {
   /// From this width the app switches to the tablet layout (NavigationRail).
   static const tablet = 840.0;
 
+  /// Short side from which a device counts as a tablet.
+  static const tabletShortestSide = 600.0;
+
   /// Smallest width the layout must support without clipping.
   static const minPhone = 320.0;
 }

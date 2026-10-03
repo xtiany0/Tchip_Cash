@@ -17,7 +17,10 @@ class MoovParser extends SmsParser {
   static const _date = r'(\d{2}/\d{2}/\d{4})\s+(\d{2}:\d{2}(?::\d{2})?)';
 
   static final _sent = RegExp(
-    r'Vous avez envoy[eé]\s+' + _amount + r"\s+[àa]\s+(l['’]Agent\s+)?(.+?)\s+(\d{8,13})\s+le\s+" + _date,
+    r'Vous avez envoy[eé]\s+' +
+        _amount +
+        r"\s+[àa]\s+(l['’]Agent\s+)?(.+?)\s+(\d{8,13})\s+le\s+" +
+        _date,
     caseSensitive: false,
   );
   static final _received = RegExp(

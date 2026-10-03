@@ -24,7 +24,11 @@ class AppShell extends StatelessWidget {
     final l = AppLocalizations.of(context);
     final items = [
       _NavItem(Icons.home_outlined, Icons.home, l.navHome),
-      _NavItem(Icons.format_list_bulleted, Icons.format_list_bulleted, l.navOperations),
+      _NavItem(
+        Icons.format_list_bulleted,
+        Icons.format_list_bulleted,
+        l.navOperations,
+      ),
       _NavItem(Icons.pie_chart_outline, Icons.pie_chart, l.navReport),
       _NavItem(Icons.calendar_today_outlined, Icons.calendar_today, l.navPlans),
     ];
@@ -107,7 +111,10 @@ class _BottomBar extends StatelessWidget {
                 tab(1),
                 // heightFactor keeps Center from filling the Scaffold height.
                 Expanded(
-                  child: Center(heightFactor: 1, child: _AddButton(onTap: onAdd)),
+                  child: Center(
+                    heightFactor: 1,
+                    child: _AddButton(onTap: onAdd),
+                  ),
                 ),
                 tab(2),
                 tab(3),
@@ -223,16 +230,24 @@ class _NavButton extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(selected ? item.activeIcon : item.icon, size: 22, color: color),
+                Icon(
+                  selected ? item.activeIcon : item.icon,
+                  size: 22,
+                  color: color,
+                ),
                 const SizedBox(height: 4),
-                Text(
-                  item.label,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.center,
-                  style: TchipText.navLabel.copyWith(
-                    color: color,
-                    fontWeight: selected ? FontWeight.w600 : FontWeight.w400,
+                // Shrinks instead of cutting the label on narrow screens or
+                // with a large system font.
+                FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    item.label,
+                    maxLines: 1,
+                    textAlign: TextAlign.center,
+                    style: TchipText.navLabel.copyWith(
+                      color: color,
+                      fontWeight: selected ? FontWeight.w600 : FontWeight.w400,
+                    ),
                   ),
                 ),
               ],

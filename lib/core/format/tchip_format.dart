@@ -18,8 +18,9 @@ class TchipFormat {
   /// Number only, with the locale grouping separator.
   String number(int value) => _number.format(value);
 
-  /// Amount in FCFA: "12 500 F".
-  String amount(int value) => '${number(value)}\u00A0F';
+  /// Amount in FCFA: "12 500 F". Narrow no-break space before F: Geist Mono
+  /// has no regular no-break space and would fall back to a wider glyph.
+  String amount(int value) => '${number(value)}\u202FF';
 
   /// Signed amount with a real minus sign (U+2212): "−1 500 F", "+20 000 F".
   String signed(int value) {
@@ -37,6 +38,22 @@ class TchipFormat {
 
   /// "12 oct." / "Oct 12".
   String dayShort(DateTime d) => DateFormat.MMMd(_tag).format(d);
+
+  /// Ends of a date range, shortened when both days share a month:
+  /// French ("12", "18 oct."), English ("Oct 12", "18").
+  (String, String) dayRange(DateTime start, DateTime end) {
+    final sameMonth = start.year == end.year && start.month == end.month;
+    if (locale.languageCode == 'fr') {
+      return (
+        sameMonth ? DateFormat.d(_tag).format(start) : dayShort(start),
+        dayShort(end),
+      );
+    }
+    return (
+      dayShort(start),
+      sameMonth ? DateFormat.d(_tag).format(end) : dayShort(end),
+    );
+  }
 
   /// "09:40".
   String time(DateTime d) => DateFormat.Hm(_tag).format(d);

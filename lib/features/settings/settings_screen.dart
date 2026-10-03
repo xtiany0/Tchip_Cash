@@ -25,7 +25,11 @@ class SettingsScreen extends ConsumerWidget {
         : l.languageFrench;
 
     final options = [
-      (LanguageChoice.auto, l.settingsLanguageAuto, l.settingsLanguageAutoSub(deviceName)),
+      (
+        LanguageChoice.auto,
+        l.settingsLanguageAuto,
+        l.settingsLanguageAutoSub(deviceName),
+      ),
       (LanguageChoice.fr, l.languageFrench, null),
       (LanguageChoice.en, l.languageEnglish, null),
     ];
@@ -48,7 +52,9 @@ class SettingsScreen extends ConsumerWidget {
                   onPressed: () => context.pop(),
                 ),
                 const SizedBox(width: TchipSpacing.md),
-                Expanded(child: Text(l.navSettings, style: TchipText.titleSmall)),
+                Expanded(
+                  child: Text(l.navSettings, style: TchipText.titleSmall),
+                ),
               ],
             ),
             const SizedBox(height: 22),
@@ -78,7 +84,9 @@ class SettingsScreen extends ConsumerWidget {
                       RadioListTile<LanguageChoice>(
                         value: options[i].$1,
                         controlAffinity: ListTileControlAffinity.trailing,
-                        contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                        ),
                         minTileHeight: 56,
                         title: Text(options[i].$2, style: TchipText.body),
                         subtitle: options[i].$3 == null
